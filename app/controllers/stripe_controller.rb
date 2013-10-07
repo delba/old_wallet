@@ -10,7 +10,7 @@ class StripeController < ApplicationController
 
   def callback
     if params[:code]
-      User.stripe_connect(stripe_attributes)
+      session[:user_id] = User.stripe_connect(stripe_attributes).id
     end
 
     redirect_to root_url
