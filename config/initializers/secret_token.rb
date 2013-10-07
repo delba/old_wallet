@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Wallet::Application.config.secret_key_base = '35e46233a22fcb7f26ae57da2e506f8f1924245f85017400b39fa8af1702a178a364103194569b8165aeddf4f589b87c6f295f7a72cec9d2c903dcf178399e35'
+Wallet::Application.config.secret_key_base = ENV['SECRET_KEY_BASE']

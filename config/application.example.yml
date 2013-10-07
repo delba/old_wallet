@@ -1,2 +1,4 @@
+SECRET_KEY_BASE: secret_key_base
+
 STRIPE_SECRET_KEY: stripe_secret_key
 STRIPE_CLIENT_ID: stripe_public_id
