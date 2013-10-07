@@ -5,4 +5,6 @@ Wallet::Application.routes.draw do
     get 'authorize'
     get 'callback'
   end
+
+  delete 'signout', to: 'sessions#destroy'
 end
