@@ -17,7 +17,7 @@ class DashboardController < ApplicationController
 
   def callback
     if params[:code]
-      @auth_token = @client.auth_code.get_token(params[:code])
+      User.stripe_connect(stripe_attributes)
     end
 
     redirect_to root_url
@@ -31,5 +31,17 @@ private
       ENV['STRIPE_SECRET_KEY'],
       site: STRIPE_CONNECT_URL
     )
+  end
+
+  def auth_token
+    @auth_token ||= @client.auth_code.get_token(params[:code])
+  end
+
+  def stripe_attributes
+    {
+      stripe_user_id: auth_token.params['stripe_user_id'],
+      stripe_token: auth_token.token,
+      stripe_publishable_key: auth_token.params['stripe_publishable_key']
+    }
   end
 end
