@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def donate
+    logger.info params
     redirect_to @user
   end
 

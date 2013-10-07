@@ -1,6 +1,46 @@
 <article>
-  <%= form_tag [:donate, @user] do %>
+  <%= form_tag [:donate, @user], id: 'donation' do %>
+    <%= hidden_field_tag :stripe_token %>
+
+    <div class="field">
+      <%= label_tag :amount %>
+      <%= text_field_tag :amount %>
+    </div>
+
+    <div class="field">
+      <label for="name">Name on card</label>
+      <input type="text" id="name">
+    </div>
+
+    <div class="field">
+      <label for="card_number">Card number</label>
+      <input type="text" id="card_number" placeholder="•••• •••• •••• ••••">
+    </div>
+
+    <div class="field">
+      <label for="expiration_date">Expires</label>
+      <input type="text" id="expiration_date" placeholder="MM / YY">
+    </div>
+
+    <div class="field">
+      <label for="cvc">Card code</label>
+      <input type="text" id="cvc" autocomplete="off" placeholder="CVC">
+    </div>
+
+    <div class="action">
+      <%= submit_tag 'Donate' %>
+    </div>
   <% end %>
 
   <%= debug @user %>
 </article>
+
+<%= javascript_include_tag 'https://js.stripe.com/v2/' %>
+
+<%= javascript_include_tag 'jquery.payment' %>
+
+<%= javascript_tag do %>
+  Stripe.setPublishableKey('<%= @user.stripe_publishable_key %>')
+<% end %>
+
+<%= javascript_include_tag 'dashboard' %>
