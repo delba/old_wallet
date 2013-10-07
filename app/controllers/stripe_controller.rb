@@ -3,7 +3,7 @@ class StripeController < ApplicationController
 
   before_action :set_client
 
-  def connect
+  def authorize
     connect_params = {
       scope: 'read_write',
       redirect_uri: callback_url
