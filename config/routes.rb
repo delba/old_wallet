@@ -7,4 +7,6 @@ Wallet::Application.routes.draw do
   end
 
   delete 'signout', to: 'sessions#destroy'
+
+  resources :users, only: [:show]
 end
