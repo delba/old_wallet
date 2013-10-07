@@ -2,12 +2,10 @@ class StripeController < ApplicationController
   STRIPE_CONNECT_URL = 'https://connect.stripe.com'
 
   def authorize
-    connect_params = {
+    redirect_to client.auth_code.authorize_url(
       scope: 'read_write',
       redirect_uri: callback_url
-    }
-
-    redirect_to client.auth_code.authorize_url(connect_params)
+    )
   end
 
   def callback
