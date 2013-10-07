@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: wallet_development
+  pool: 5
+  username: <%= ENV['USER'] %>
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: wallet_test
+  pool: 5
+  username: <%= ENV['USER'] %>
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: wallet_production
+  pool: 5
+  username: <%= ENV['USER'] %>
+  password:
