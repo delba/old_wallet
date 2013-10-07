@@ -1,7 +1,7 @@
 Wallet::Application.routes.draw do
   root 'dashboard#index'
 
-  controller :dashboard do
+  controller :stripe do
     get 'connect'
     get 'callback'
   end
