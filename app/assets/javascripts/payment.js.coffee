@@ -12,7 +12,7 @@ $.fn.cardData = ->
   exp_month: expiration.month or null
   exp_year: expiration.year or null
 
-$form = $('#donation')
+$form = $('#payment')
 $stripe_token = $form.find('#stripe_token')
 $stripe_publishable_key = $form.find('#stripe_publishable_key')
 $card_number = $form.find('#card_number')

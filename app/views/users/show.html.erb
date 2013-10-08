@@ -1,5 +1,5 @@
 <article>
-  <%= form_tag [:donate, @user], id: 'donation' do %>
+  <%= form_tag [:donate, @user], id: 'payment' do %>
     <%= hidden_field_tag :stripe_publishable_key, @user.stripe_publishable_key %>
     <%= hidden_field_tag :stripe_token %>
 
@@ -40,4 +40,4 @@
 
 <%= javascript_include_tag 'jquery.payment' %>
 
-<%= javascript_include_tag 'dashboard' %>
+<%= javascript_include_tag 'payment' %>
