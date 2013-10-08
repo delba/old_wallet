@@ -9,6 +9,8 @@
 <body>
 
 <header>
+  <h1><%= link_to "Wallet", root_path %></h1>
+
   <% if current_user %>
     <p><%= link_to "Sign Out", signout_path, method: :delete %></p>
   <% else %>
