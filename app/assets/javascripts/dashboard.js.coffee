@@ -14,9 +14,14 @@ $.fn.cardData = ->
 
 $form = $('#donation')
 $stripe_token = $form.find('#stripe_token')
+$stripe_publishable_key = $form.find('#stripe_publishable_key')
 $card_number = $form.find('#card_number')
 $expiration_date = $form.find('#expiration_date')
 $cvc = $form.find('#cvc')
+
+# Set Stripe Publishable Key
+
+Stripe.setPublishableKey $stripe_publishable_key.val()
 
 # Format Card Inputs
 
