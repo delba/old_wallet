@@ -16,3 +16,5 @@
 //
 //= require stripe
 //= require jquery.payment
+//
+//= require_tree .

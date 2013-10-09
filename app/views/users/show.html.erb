@@ -36,4 +36,6 @@
   <%= debug @user %>
 </article>
 
-<%= javascript_include_tag 'payment' %>
+<%= javascript_tag do %>
+  Payment.init();
+<% end %>
