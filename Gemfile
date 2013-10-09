@@ -13,6 +13,7 @@ gem 'oauth2'
 
 group :test do
   gem 'capybara'
+  gem 'poltergeist'
 end
 
 group :doc do
