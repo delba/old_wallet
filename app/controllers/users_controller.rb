@@ -11,6 +11,8 @@ class UsersController < ApplicationController
       currency: params[:currency],
       description: 'Wallet'
     }, @user.stripe_token)
+
+    flash.notice = 'Thank you!'
   rescue Stripe::CardError => e
     logger.info e
   ensure
