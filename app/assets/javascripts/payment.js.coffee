@@ -1,4 +1,5 @@
 $.fn.formatCard = ->
+  @find('#amount').payment('restrictNumeric')
   @find('#card_number').payment('formatCardNumber')
   @find('#cvc').payment('formatCardCVC')
   @find('#expiration_date').payment('formatCardExpiry')

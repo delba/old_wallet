@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def donate
     Stripe::Charge.create({
-      amount: amount,
+      amount: params[:amount].to_i * 100,
       card: params[:stripe_token],
       currency: 'USD',
       description: 'Wallet'
@@ -21,9 +21,5 @@ private
 
   def set_user
     @user = User.find(params[:id])
-  end
-
-  def amount
-    (params[:amount].to_f * 100).to_i
   end
 end

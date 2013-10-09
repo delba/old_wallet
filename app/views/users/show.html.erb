@@ -5,7 +5,7 @@
 
     <div class="field">
       <%= label_tag :amount %>
-      <%= text_field_tag :amount, nil, autocomplete: 'off', pattern: '\d*' %>
+      <%= number_field_tag :amount, nil, step: 1, autocomplete: 'off', pattern: '\d*' %>
     </div>
 
     <div class="field">
