@@ -1,11 +1,7 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  stripe_token: MyString
-  stripe_user_id: MyString
-  stripe_publishable_key: MyString
-
-two:
-  stripe_token: MyString
-  stripe_user_id: MyString
-  stripe_publishable_key: MyString
+jane:
+  stripe_token: stripe_token
+  stripe_user_id: stripe_user_id
+  stripe_publishable_key: stripe_publishable_key
+  currencies_supported:
+    - USD
+  default_currency: USD
