@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     Stripe::Charge.create({
       amount: params[:amount].to_i * 100,
       card: params[:stripe_token],
-      currency: 'USD',
+      currency: params[:currency],
       description: 'Wallet'
     }, @user.stripe_token)
   rescue Stripe::CardError => e

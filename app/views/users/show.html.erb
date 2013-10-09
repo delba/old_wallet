@@ -4,6 +4,11 @@
     <%= hidden_field_tag :stripe_token %>
 
     <div class="field">
+      <%= label_tag :currency %>
+      <%= select_tag :currency, options_for_select(@user.currencies_supported, @user.default_currency) %>
+    </div>
+
+    <div class="field">
       <%= label_tag :amount %>
       <%= number_field_tag :amount, nil, step: 1, autocomplete: 'off', pattern: '\d*' %>
     </div>
