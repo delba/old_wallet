@@ -1,31 +1,31 @@
 <article>
-  <%= form_tag [:donate, @user], id: 'payment' do %>
+  <%= form_tag [:donate, @user], id: 'payment', autocomplete: 'on', novalidate: true do %>
     <%= hidden_field_tag :stripe_publishable_key, @user.stripe_publishable_key %>
     <%= hidden_field_tag :stripe_token %>
 
     <div class="field">
       <%= label_tag :amount %>
-      <%= text_field_tag :amount %>
+      <%= text_field_tag :amount, nil, autocomplete: 'off', pattern: '\d*' %>
     </div>
 
     <div class="field">
       <label for="name">Name on card</label>
-      <input type="text" id="name">
+      <input type="text" id="name" spellcheck="off" autocompletetype="cc-name">
     </div>
 
     <div class="field">
       <label for="card_number">Card number</label>
-      <input type="text" id="card_number" placeholder="•••• •••• •••• ••••">
+      <input type="text" id="card_number" pattern="\d*" autocompletetype="cc-number" placeholder="•••• •••• •••• ••••">
     </div>
 
     <div class="field">
       <label for="expiration_date">Expires</label>
-      <input type="text" id="expiration_date" placeholder="MM / YY">
+      <input type="text" id="expiration_date" pattern="\d*" autocompletetype="cc-exp" placeholder="MM / YY">
     </div>
 
     <div class="field">
       <label for="cvc">Card code</label>
-      <input type="text" id="cvc" autocomplete="off" placeholder="CVC">
+      <input type="text" id="cvc" autocomplete="off" pattern="\d*" autocompletetype="cc-csc" placeholder="CVC">
     </div>
 
     <div class="action">
