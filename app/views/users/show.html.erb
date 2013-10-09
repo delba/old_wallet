@@ -3,34 +3,38 @@
     <%= hidden_field_tag :stripe_publishable_key, @user.stripe_publishable_key %>
     <%= hidden_field_tag :stripe_token %>
 
-    <div class="field">
-      <%= label_tag :currency %>
-      <%= select_tag :currency, options_for_select(@user.currencies_supported, @user.default_currency) %>
+    <div class="group">
+      <div class="field currency">
+        <%= label_tag :currency %>
+        <%= select_tag :currency, options_for_select(@user.currencies_supported, @user.default_currency) %>
+      </div>
+
+      <div class="field amount">
+        <%= label_tag :amount %>
+        <%= number_field_tag :amount, nil, step: 1, autocomplete: 'off', pattern: '\d*' %>
+      </div>
     </div>
 
-    <div class="field">
-      <%= label_tag :amount %>
-      <%= number_field_tag :amount, nil, step: 1, autocomplete: 'off', pattern: '\d*' %>
-    </div>
-
-    <div class="field">
+    <div class="field name">
       <label for="name">Name on card</label>
       <input type="text" id="name" spellcheck="off" autocompletetype="cc-name">
     </div>
 
-    <div class="field">
+    <div class="field card_number">
       <label for="card_number">Card number</label>
       <input type="text" id="card_number" pattern="\d*" autocompletetype="cc-number" placeholder="•••• •••• •••• ••••">
     </div>
 
-    <div class="field">
-      <label for="expiration_date">Expires</label>
-      <input type="text" id="expiration_date" pattern="\d*" autocompletetype="cc-exp" placeholder="MM / YY">
-    </div>
+    <div class="group">
+      <div class="field expiration_date">
+        <label for="expiration_date">Expires</label>
+        <input type="text" id="expiration_date" pattern="\d*" autocompletetype="cc-exp" placeholder="MM / YY">
+      </div>
 
-    <div class="field">
-      <label for="cvc">Card code</label>
-      <input type="text" id="cvc" autocomplete="off" pattern="\d*" autocompletetype="cc-csc" placeholder="CVC">
+      <div class="field cvc">
+        <label for="cvc">Card code</label>
+        <input type="text" id="cvc" autocomplete="off" pattern="\d*" autocompletetype="cc-csc" placeholder="CVC">
+      </div>
     </div>
 
     <div class="action">

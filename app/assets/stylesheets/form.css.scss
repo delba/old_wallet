@@ -1,0 +1,88 @@
+$form_width: 12.5rem;
+$margin: 1rem;
+$currency_width: 3.8125rem;
+
+input, textarea, select {
+  font: inherit;
+  font-size: 1rem;
+}
+
+form {
+  width: $form_width;
+}
+
+.field, .action {
+  margin-bottom: 0.875rem;
+}
+
+label {
+  font-size: 0.875rem;
+  font-weight: bold;
+  display: block;
+  -webkit-font-smoothing: antialiased;
+}
+
+.group .field {
+  float: left;
+  &:first-of-type {
+    margin-right: $margin;
+  }
+}
+
+.currency {
+  select {
+    width: $currency_width;
+    position: relative;
+    top: 0.1875rem;
+  }
+}
+
+.amount {
+  width: ($form_width - $currency_width - $margin);
+}
+
+.expiration_date,
+.cvc {
+  width: ($form_width - $margin) / 2;
+}
+
+input {
+  width: 100%;
+}
+
+input[type='submit'] {
+  width: ($form_width - $margin) / 2;
+}
+
+input[type='submit'] {
+  -webkit-appearance: none;
+  cursor: pointer;
+  color: #fff;
+  text-shadow: rgba(#000, 0.5) 0 1px 0;
+  font: 0.6875rem/normal 'Lucida Grande';
+  background-color: #C0C0C0;
+  background-image: -webkit-linear-gradient(top, #5D9AFF, #5D9AFF 38%, #5891F0);
+  line-height: 1.5rem;
+  border: 1px solid #2D66C3;
+  border-radius: 2px;
+  box-shadow: rgba(#000, 0.15) 0 1px 0 0, rgba(#fff, 0.2) 0 1px 2px 0 inset;
+
+  &:hover {
+    background-image: -webkit-linear-gradient(#659efd, #659efd 38%, #6097f1);
+    border: 1px solid rgba(45, 102, 195, 1);
+    box-shadow: 0 1px 0 rgba(#000, 0.25), inset 0 1px 2px rgba(#fff, 0.2);
+  }
+
+  &:active, &:disabled {
+    outline: none;
+    background-image: -webkit-linear-gradient(#6095ed, #6095ed 38%, #6095ed);
+    border: 1px solid rgb(38, 84, 160);
+    box-shadow: inset 0 1px 1px rgba(#000, 0.1);
+  }
+}
+
+.group:after {
+  content: '';
+  display: block;
+  clear: both;
+}
