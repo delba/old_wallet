@@ -2,3 +2,7 @@ SECRET_KEY_BASE: secret_key_base
 
 STRIPE_SECRET_KEY: stripe_secret_key
 STRIPE_CLIENT_ID: stripe_public_id
+
+JANE_STRIPE_TOKEN: jane_stripe_token
+JANE_STRIPE_USER_ID: jane_stripe_user_id
+JANE_STRIPE_PUBLISHABLE_KEY: jane_stripe_publishable_key
