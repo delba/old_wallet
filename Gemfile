@@ -14,6 +14,7 @@ gem 'oauth2'
 group :test do
   gem 'capybara'
   gem 'poltergeist'
+  gem 'launchy'
 end
 
 group :doc do
