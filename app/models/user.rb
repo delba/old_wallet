@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   serialize :currencies_supported
 
+  has_many :charges
+
   def self.stripe_connect(stripe_attributes)
     user = find_by(stripe_user_id: stripe_attributes[:stripe_user_id])
 
