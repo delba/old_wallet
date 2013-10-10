@@ -2,13 +2,7 @@ class ChargesController < ApplicationController
   before_action :set_user
 
   def create
-    Stripe::Charge.create({
-      amount: params[:amount].to_i * 100,
-      card: params[:stripe_token],
-      currency: params[:currency],
-      description: 'Wallet'
-    }, @user.stripe_token)
-
+    @user.charges.create!(charge_params)
     flash.notice = 'Thank you!'
   rescue Stripe::CardError => e
     logger.info e
@@ -17,6 +11,14 @@ class ChargesController < ApplicationController
   end
 
 private
+
+  def charge_params
+    {
+      currency: params[:currency],
+      amount: params[:amount],
+      stripe_token: params[:stripe_token]
+    }
+  end
 
   def set_user
     @user = User.find(params[:user_id])
