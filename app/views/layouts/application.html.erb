@@ -16,8 +16,6 @@
 
   <% if current_user %>
     <p><%= link_to "Sign Out", signout_path, method: :delete %></p>
-  <% else %>
-    <p><%= link_to "Connect with Stripe", authorize_path, data: { 'no-turbolink' => true } %></p>
   <% end %>
 </header>
 
