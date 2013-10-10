@@ -1,4 +1,6 @@
 <% if current_user %>
   <%= debug current_user %>
   <%= javascript_include_tag 'd3.js' %>
+<% else %>
+  <p><%= link_to "Connect with Stripe", authorize_path, class: 'stripe-connect', data: { 'no-turbolink' => true } %></p>
 <% end %>
