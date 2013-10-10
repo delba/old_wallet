@@ -1,4 +1,6 @@
 <article>
+  <h1>User #<%= @user.id %></h1>
+
   <%= form_tag [:donate, @user], id: 'payment', autocomplete: 'on', novalidate: true do %>
     <%= hidden_field_tag :stripe_publishable_key, @user.stripe_publishable_key %>
     <%= hidden_field_tag :stripe_token %>
