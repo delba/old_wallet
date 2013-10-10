@@ -13,11 +13,11 @@ class ChargesController < ApplicationController
 private
 
   def charge_params
-    {
-      currency: params[:currency],
-      amount: params[:amount],
-      stripe_token: params[:stripe_token]
-    }
+    params.require(:charge).permit(
+      :currency,
+      :amount,
+      :stripe_token
+    )
   end
 
   def set_user
