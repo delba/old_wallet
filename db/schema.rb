@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131009165116) do
+ActiveRecord::Schema.define(version: 20131010184935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "charges", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "amount"
+    t.string   "currency"
+    t.string   "stripe_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "charges", ["user_id"], name: "index_charges_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "stripe_token"

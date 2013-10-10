@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 
+  amount: 1
+  currency: MyString
+  stripe_id: MyString
+
+two:
+  user_id: 
+  amount: 1
+  currency: MyString
+  stripe_id: MyString
