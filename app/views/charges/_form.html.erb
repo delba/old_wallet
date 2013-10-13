@@ -40,3 +40,7 @@
     <%= f.submit 'Donate' %>
   </div>
 <% end %>
+
+<%= javascript_tag do %>
+  Payment.init();
+<% end %>
