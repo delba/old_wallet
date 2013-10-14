@@ -20,6 +20,9 @@ label {
   font-weight: bold;
   display: block;
   -webkit-font-smoothing: antialiased;
+  input[type='checkbox'] + & {
+    display: inline-block;
+  }
 }
 
 .group .field {
@@ -46,7 +49,7 @@ label {
   width: ($form_width - $margin) / 2;
 }
 
-input {
+input:not([type='checkbox']) {
   width: 100%;
 }
 
