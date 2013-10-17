@@ -1,18 +1,10 @@
 <%= form_for [@user, Charge.new], html: { id: 'payment', autocomplete: 'on', novalidate: true } do |f| %>
   <%= hidden_field_tag :stripe_publishable_key, @user.stripe_publishable_key %>
+
   <%= f.hidden_field :stripe_token, id: 'stripe_token' %>
 
-  <div class="group">
-    <div class="field currency">
-      <%= f.label :currency %>
-      <%= f.select :currency, options_for_select(@user.currencies_supported, @user.default_currency) %>
-    </div>
-
-    <div class="field amount">
-      <%= f.label :amount %>
-      <%= f.number_field :amount, step: 1, autocomplete: 'off', pattern: '\d*' %>
-    </div>
-  </div>
+  <%= f.hidden_field :currency, value: @currency %>
+  <%= f.hidden_field :amount, value: @amount %>
 
   <div class="field name">
     <label for="name">Name on card</label>

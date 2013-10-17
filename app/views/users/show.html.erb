@@ -1,5 +1,21 @@
 <article>
   <h1>User #<%= @user.id %></h1>
 
-  <%= render 'charges/form' %>
+  <%= form_tag new_user_charge_path(@user), method: :get do %>
+    <div class="group">
+      <div class="field currency">
+        <%= label_tag :currency %>
+        <%= select_tag :currency, options_for_select(@user.currencies_supported, @user.default_currency) %>
+      </div>
+
+      <div class="field amount">
+        <%= label_tag :amount %>
+        <%= number_field_tag :amount, nil, step: 1, autocomplete: 'off', pattern: '\d*' %>
+      </div>
+    </div>
+
+    <div class="action">
+      <%= submit_tag 'Payment' %>
+    </div>
+  <% end %>
 </article>

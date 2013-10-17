@@ -15,9 +15,16 @@ class PaymentTest < ActionDispatch::IntegrationTest
   test "make a payment" do
     visit "/users/#{@jane.id}"
 
-    within '#payment' do
+    within 'form' do
       select 'USD', from: 'Currency'
       fill_in 'Amount', with: '50'
+      click_button 'Donate'
+    end
+
+    assert_equal "/users/#{@jane.id}/charges/new", current_path
+    assert_selector 'p', text: "Donation of 50 USD to User ##{@jane.id}"
+
+    within '#payment' do
       fill_in 'Name on card', with: @card.name
       fill_in 'Card number', with: @card.number
       fill_in 'Expires', with: @card.exp_date

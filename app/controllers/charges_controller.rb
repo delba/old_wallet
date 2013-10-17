@@ -1,6 +1,15 @@
 class ChargesController < ApplicationController
   before_action :set_user
 
+  def new
+    @amount = params[:amount].presence
+    @currency = params[:currency].presence
+
+    unless @amount && @currency
+      redirect_to @user
+    end
+  end
+
   def create
     @user.charges.create!(charge_params)
     flash.notice = 'Thank you!'
