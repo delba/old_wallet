@@ -28,6 +28,28 @@
     </div>
   </div>
 
+  <div class="field">
+    <%= check_box_tag :remember_me %>
+    <%= label_tag :remember_me %>
+  </div>
+
+  <div class="customer hidden">
+    <div class="field">
+      <%= label_tag :email %>
+      <%= email_field_tag :email %>
+    </div>
+
+    <div class="field">
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </div>
+
+    <div class="field">
+      <%= label_tag :password_confirmation %>
+      <%= password_field_tag :password_confirmation %>
+    </div>
+  </div>
+
   <div class="action">
     <p><%= f.submit 'Donate' %> or <%= link_to "cancel", @user %></p>
   </div>

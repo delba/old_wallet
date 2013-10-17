@@ -88,6 +88,10 @@ input[type='submit'] {
   }
 }
 
+.customer.hidden {
+  display: none;
+}
+
 .group:after {
   content: '';
   display: block;

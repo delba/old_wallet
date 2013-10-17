@@ -62,3 +62,8 @@ stripeResponseHandler = (status, response) ->
 
     $form.formatCard()
     Stripe.setPublishableKey $form.find('#stripe_publishable_key').val()
+
+# Customer
+
+$(document).on 'click', '#remember_me', (e) ->
+  $('.customer').toggleClass('hidden', !$(this).is(':checked'))
