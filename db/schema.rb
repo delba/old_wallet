@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131017151836) do
+ActiveRecord::Schema.define(version: 20131017162022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,8 +37,11 @@ ActiveRecord::Schema.define(version: 20131017151836) do
     t.datetime "updated_at"
     t.string   "currencies_supported"
     t.string   "default_currency"
+    t.string   "email"
+    t.string   "password_digest"
   end
 
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["stripe_user_id"], name: "index_users_on_stripe_user_id", unique: true, using: :btree
 
 end
