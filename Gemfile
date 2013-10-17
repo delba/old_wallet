@@ -10,6 +10,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'stripe', github: 'stripe/stripe-ruby'
 gem 'oauth2'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 group :test do
   gem 'capybara'
@@ -21,9 +22,6 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'
